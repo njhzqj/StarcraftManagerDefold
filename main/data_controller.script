@@ -1,0 +1,80 @@
+function init(self)
+	-- Add initialization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+
+	-- init necessary game data
+	
+	-- current player's team name
+	team_name = "Not Defined"
+	-- current team's information
+	team_info = {}
+	-- Set the inti money
+	team_info['money'] = 10000
+	-- Set the team_name
+	team_info['team_name'] = team_name
+	-- Set the Game history
+	team_info['game_history'] = nil
+	-- Set the Team Players
+	team_info['palyers'] = nil
+
+	-- Set the date of game 
+	game_date = 0
+	game_date_str = "Day " + game_date
+
+	-- Set last income
+	last_income = 0
+end
+-- 
+-- function final(self)
+-- 	-- Add finalization code here
+-- 	-- Learn more: https://defold.com/manuals/script/
+-- 	-- Remove this function if not needed
+-- end
+-- 
+-- function update(self, dt)
+-- 	-- Add update code here
+-- 	-- Learn more: https://defold.com/manuals/script/
+-- 	-- Remove this function if not needed
+-- end
+-- 
+-- function fixed_update(self, dt)
+-- 	-- This function is called if 'Fixed Update Frequency' is enabled in the Engine section of game.project
+-- 	-- Can be coupled with fixed updates of the physics simulation if 'Use Fixed Timestep' is enabled in
+-- 	-- Physics section of game.project
+-- 	-- Add update code here
+-- 	-- Learn more: https://defold.com/manuals/script/
+-- 	-- Remove this function if not needed
+-- end
+-- 
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Learn more: https://defold.com/manuals/message-passing/
+	-- Remove this function if not needed
+	if message_id == hash("update_date") then
+		-- add date by 1
+		game_date = game_date + 1
+		--local new_msg['date'] = game_date
+		-- tell story controller to update date
+		msg.post("#story_controller", "update_date", new_msg)
+	end
+end
+-- 
+-- function on_input(self, action_id, action)
+-- 	-- Add input-handling code here. The game object this script is attached to
+-- 	-- must have acquired input focus:
+-- 	--
+-- 	--    msg.post(".", "acquire_input_focus")
+-- 	--
+-- 	-- All mapped input bindings will be received. Mouse and touch input will
+-- 	-- be received regardless of where on the screen it happened.
+-- 	-- Learn more: https://defold.com/manuals/input/
+-- 	-- Remove this function if not needed
+-- end
+-- 
+-- function on_reload(self)
+-- 	-- Add reload-handling code here
+-- 	-- Learn more: https://defold.com/manuals/hot-reload/
+-- 	-- Remove this function if not needed
+-- end
+-- 
